@@ -1,11 +1,10 @@
 const express = require("express");
 const facultyController = require("../controllers/facultyController");
-
 const router = express.Router();
 
 router
   .route("/")
-  .get(facultyController.getAllfaculties)
+  .get(facultyController.getAllFaculties)
   .post(facultyController.createFaculty);
 
 router
