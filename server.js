@@ -2,55 +2,27 @@ const dotenv = require("dotenv");
 dotenv.config({
   path: "./config.env",
 });
-const express = require("express");
-const app = express();
-const path = require("path");
-// const livereload = require("livereload");
-// const connectLiveReload = require("connect-livereload");
 
-console.log(process.env.DB_HOST);
+const app = require("./app");
 
-const publicDirectory = path.join(__dirname, "public");
+const livereload = require("livereload");
+const connectLiveReload = require("connect-livereload");
 
-// Setting public directory
+if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+  const liveReloadServer = livereload.createServer();
 
-app.use(express.static(publicDirectory));
+  liveReloadServer.watch([publicDirectory + "/css", __dirname + "dist"]);
 
-// if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
-//   console.log("Development Build");
+  // ping browser on Express boot, once browser has reconnected and handshaken
+  liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+      liveReloadServer.refresh("/");
+    }, 100);
+  });
+  app.use(connectLiveReload());
+}
 
-//   const liveReloadServer = livereload.createServer();
-
-//   liveReloadServer.watch([publicDirectory + "/css", __dirname + "dist"]);
-
-//   // ping browser on Express boot, once browser has reconnected and handshaken
-//   liveReloadServer.server.once("connection", () => {
-//     setTimeout(() => {
-//       liveReloadServer.refresh("/");
-//     }, 100);
-//   });
-//   app.use(connectLiveReload());
-// }
-app.use("/scripts", express.static(__dirname + "/dist"));
-
-// Set ejs template
-app.set("view engine", "ejs");
-
-app.use(express.json());
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
-
-// Routes
-// app.use("/", require("./routes/index"));
-// app.use("/", require("./routes/form"));
-// app.use("/", require("./routes/report"));
-// app.use("/", require("./routes/admin"));
-// app.use("/", require("./routes/dropdown"));
-
-// Server Running at port 4000
-app.listen("4000", () => {
-  console.log("Server Started ... http://localhost:4000");
+const port = process.env.PORT || 3000;
+const server = app.listen(port, () => {
+  console.log(`App running on port ${port}...`);
 });
