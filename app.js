@@ -19,6 +19,6 @@ app.use((req, res, next) => {
 
 //routes
 
-app.use("/api/v1/tours", require("./routes/facultyRoutes"));
+app.use("/api/v1/faculty", require("./routes/facultyRoutes"));
 
 module.exports = app;
