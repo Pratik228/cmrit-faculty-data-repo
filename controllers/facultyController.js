@@ -1,11 +1,10 @@
 const { getConnection } = require("../db/db.config");
+
 exports.createFaculty = async (req, res) => {
   try {
-    const { facultyId, name, dId, mailId, phoneNumber, joiningDate } = req.body;
-    const sql = await getConnection();
-    await sql.query(
-      `INSERT INTO faculty(facultyId, name, dId, mailId, phoneNumber, joiningDate) VALUES(${facultyId},${name}, ${dId},${mailId},${phoneNumber},${joiningDate})`
-    );
+    const db = await getConnection();
+    const sql = `INSERT INTO faculty SET ? `;
+    await db.query(sql, req.body);
     res.status(201).json({
       status: "success",
       message: "Faculty is created!!",
@@ -14,7 +13,7 @@ exports.createFaculty = async (req, res) => {
     console.error(err);
     res.status(500).json({
       status: "error",
-      message: "This route is not yet defined!!",
+      message: "Something went wrong!!",
     });
   }
 };
