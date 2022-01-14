@@ -1,4 +1,4 @@
-const { getConnection } = require("./db.config");
+const { getConnection } = require("../db/db.config");
 exports.createFaculty = async (req, res) => {
   try {
     const { facultyId, name, dId, mailId, phoneNumber, joiningDate } = req.body;
