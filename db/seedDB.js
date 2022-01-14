@@ -11,33 +11,28 @@ const {
   CREATE_RESULTS_TABLE,
 } = require("./dbTable");
 
-const { CONNECTION_CONFIG } = require("./dbHelper");
+const { CONNECTION_CONFIG, getConnection } = require("./db.config");
 
 const seedDatabase = async function () {
   try {
-    const connection = mysql.createConnection(CONNECTION_CONFIG);
-    if (!connection) {
-      throw new Error("Could not create connection");
-    }
-    const execQuery = util.promisify(connection.query.bind(connection));
-    await createTable(execQuery);
-
-    console.log("Created Tables Successfully!");
+    const sql = await getConnection();
+    await createTable(sql);
+    console.log("Created Tables Successfully :)");
+    process.exit();
   } catch (err) {
     console.error(err);
   }
 };
 
-const createTable = async function (execQuery) {
+const createTable = async function (sql) {
   try {
-    await execQuery(CREATE_USER_TABLE);
-    await execQuery(CREATE_DEPARTMENT_TABLE);
-    await execQuery(CREATE_FACULTY_TABLE);
-    await execQuery(CREATE_AWARDS_TABLE);
-    await execQuery(CREATE_PATENT_TABLE);
-    await execQuery(CREATE_FACULTY_SERVED_AS_TABLE);
-    await execQuery(CREATE_RESULTS_TABLE);
-    process.exit();
+    await sql.query(CREATE_USER_TABLE);
+    await sql.query(CREATE_DEPARTMENT_TABLE);
+    await sql.query(CREATE_FACULTY_TABLE);
+    await sql.query(CREATE_AWARDS_TABLE);
+    await sql.query(CREATE_PATENT_TABLE);
+    await sql.query(CREATE_FACULTY_SERVED_AS_TABLE);
+    await sql.query(CREATE_RESULTS_TABLE);
   } catch (err) {
     throw err;
   }
