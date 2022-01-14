@@ -11,12 +11,7 @@ const {
   CREATE_RESULTS_TABLE,
 } = require("./dbTable");
 
-const CONNECTION_CONFIG = {
-  host: "localhost",
-  user: "root",
-  password: "pratik79",
-  database: "faculty_db",
-};
+const { CONNECTION_CONFIG } = require("./dbHelper");
 
 const seedDatabase = async function () {
   try {
@@ -27,7 +22,7 @@ const seedDatabase = async function () {
     const execQuery = util.promisify(connection.query.bind(connection));
     await createTable(execQuery);
 
-    console.log("Created Tables  Successfully!");
+    console.log("Created Tables Successfully!");
   } catch (err) {
     console.error(err);
   }
@@ -42,6 +37,7 @@ const createTable = async function (execQuery) {
     await execQuery(CREATE_PATENT_TABLE);
     await execQuery(CREATE_FACULTY_SERVED_AS_TABLE);
     await execQuery(CREATE_RESULTS_TABLE);
+    process.exit();
   } catch (err) {
     throw err;
   }
