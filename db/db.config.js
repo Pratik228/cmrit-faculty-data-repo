@@ -21,7 +21,7 @@ const getConnection = () => {
         console.log("Error in getting connection from pool");
         return reject(err);
       }
-      resolve(connection);
+      resolve(connection.promise());
     });
   });
 };
