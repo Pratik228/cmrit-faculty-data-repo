@@ -2,9 +2,11 @@
   "name": "cmrit-faculty-data-repo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "createDB": "node ./db/createDB.js",
+    "seeddb": "node ./db/seedDB.js",
+    "seeddb-prod": "node ./db/createDB && npm run seeddb"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/Pratik228/cmrit-faculty-data-repo/issues"
   },
-  "homepage": "https://github.com/Pratik228/cmrit-faculty-data-repo#readme"
+  "homepage": "https://github.com/Pratik228/cmrit-faculty-data-repo#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3"
+  }
 }
