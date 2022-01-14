@@ -1,0 +1,11 @@
+[
+  { "dId": 101, "departmentName": "CSE" },
+  { "dId": 102, "departmentName": "ISE" },
+  { "dId": 103, "departmentName": "ECE" },
+  { "dId": 104, "departmentName": "MECH" },
+  { "dId": 105, "departmentName": "CIVIL" },
+  { "dId": 106, "departmentName": "TCE" },
+  { "dId": 107, "departmentName": "MBA" },
+  { "dId": 108, "departmentName": "MCA" },
+  { "dId": 109, "departmentName": "Basic Science" }
+]

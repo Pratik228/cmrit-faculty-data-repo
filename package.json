@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": 
-  {
+  "scripts": {
     "start": "nodemon server.js",
-    "createDB": "node ./db/createDB.js",
+    "createDB": "node ./db/createDB.js && node ./db/seedDB.js && node ./dev-data/import-dept.js",
     "seeddb": "node ./db/seedDB.js",
     "seeddb-prod": "node ./db/createDB && npm run seeddb"
   },
