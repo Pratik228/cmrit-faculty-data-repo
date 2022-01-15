@@ -48,7 +48,7 @@ exports.getFaculty = async (req, res) => {
   }
 };
 
-exports.updateFaculty = (req, res) => {
+exports.updateFaculty = async (req, res) => {
   try {
     const db = await getConnection();
     const sql = `UPDATE faculty SET ? WHERE facultyId ?`;
@@ -66,7 +66,7 @@ exports.updateFaculty = (req, res) => {
   }
 };
 
-exports.deleteFaculty = (req, res) => {
+exports.deleteFaculty = async (req, res) => {
   const sql = `DELETE FROM faculty WHERE faculty id ?`;
   res.status(500).json({
     status: "error",

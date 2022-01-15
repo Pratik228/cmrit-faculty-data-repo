@@ -3,11 +3,6 @@ const router = express.Router();
 const connection = require("../configs/DBConnection");
 const { snakeCase, startCase } = require("lodash");
 
-const {
-  ensureAuthenticated,
-  forwardAuthenticated,
-} = require("../configs/auth");
-
 const formatDate = (date, format) => {
   let d = new Date(date),
     month = "" + (d.getMonth() + 1),

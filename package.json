@@ -4,10 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "createDB": "node ./db/createDB.js && node ./db/seedDB.js && node ./dev-data/import-dept.js",
-    "seeddb": "node ./db/seedDB.js",
-    "seeddb-prod": "node ./db/createDB && npm run seeddb"
+    "start": "nodemon server.js -e ejs,js --ignore 'public/'",
+    "dev": "webpack --watch --config webpack.dev.config.js",
+    "createDB": "node ./db/createDB.js && node ./db/seedDB.js && node ./dev-data/import-dept.js"
   },
   "repository": {
     "type": "git",
@@ -20,13 +19,26 @@
   },
   "homepage": "https://github.com/Pratik228/cmrit-faculty-data-repo#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "dotenv": "^11.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.2",
-    "mysql2": "^2.3.3"
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "mysql2": "^2.3.3",
+    "quill": "^1.3.7",
+    "quill-image-resize": "^3.0.9",
+    "quill-image-uploader": "^1.2.2"
   },
   "devDependencies": {
     "connect-livereload": "^0.6.1",
+    "css-loader": "^5.2.7",
     "livereload": "^0.9.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-middleware": "^3.7.3",
+    "webpack-dev-server": "^3.11.2"
   }
 }
