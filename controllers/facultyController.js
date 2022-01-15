@@ -33,7 +33,7 @@ exports.getFaculty = async (req, res) => {
   try {
     const db = await getConnection();
     const sql = `SELECT * FROM faculty WHERE facultyId = ?`;
-    const result = await db.query(sql, req.params.id);
+    const result = await db.query(sql, req.body);
     console.log(result[0][0]);
     res.status(200).json({
       status: "ok",
@@ -49,11 +49,21 @@ exports.getFaculty = async (req, res) => {
 };
 
 exports.updateFaculty = (req, res) => {
-  const sql = `UPDATE faculty SET ? WHERE facultyId ?`;
-  res.status(500).json({
-    status: "error",
-    message: "This route is not yet defined!!",
-  });
+  try {
+    const db = await getConnection();
+    const sql = `UPDATE faculty SET ? WHERE facultyId ?`;
+    const result = await db.query(sql, req.params.id);
+    res.status(200).json({
+      status: "ok",
+      data: result[0],
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      status: "error",
+      message: "This route is not yet defined!!",
+    });
+  }
 };
 
 exports.deleteFaculty = (req, res) => {
