@@ -5,7 +5,6 @@ const scrollBtn = document.getElementById("btn-back-to-top");
 
 const closeMegaMenu = function () {
   menu.classList.remove("submenu--active");
-  overlay.classList.add("nav__hidden");
 };
 
 if (menu) {
@@ -19,7 +18,6 @@ if (menu) {
 const openMegaMenu = function () {
   if (menu) {
     menu.classList.toggle("submenu--active");
-    overlay.classList.toggle("nav__hidden");
   }
 };
 
