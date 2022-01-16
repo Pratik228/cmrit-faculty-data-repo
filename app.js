@@ -6,11 +6,8 @@ const app = express();
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
-app.set("view engine", "ejs");
-app.use(express.json());
-app.use(express.static(`${__dirname}/public`));
 
-app.use("/scripts", express.static(`${__dirname}/dist`));
+app.use(express.json());
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
@@ -20,7 +17,6 @@ app.use((req, res, next) => {
 
 //routes
 
-app.use("/", require("./routes/viewsRoutes"));
 app.use("/api/v1/faculty", require("./routes/facultyRoutes"));
 
 module.exports = app;
