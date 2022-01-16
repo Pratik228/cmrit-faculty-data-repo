@@ -6,7 +6,9 @@ footer.sticky-footer {
   left: 0;
   bottom: 0;
   padding: 2rem 0;
-
+}
+nav.navbar__home {
+  background-color: #fff3b0;
 }
 
 footer.sticky-footer .copyright {
