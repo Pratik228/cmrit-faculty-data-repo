@@ -1,17 +1,16 @@
-body {
-  background-color: #f2f4f8;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  font-family: "Open Sans";
-}
+
+a,a:hover,a:focus,a:active{text-decoration:none;outline:0}
+
 
 .wrapper {
-  display: table;
-  height: 100%;
+  display: flex;
   width: 100%;
+  height: 100%;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
 }
+
 
 .container-fostrap {
   display: table-cell;
@@ -23,13 +22,7 @@ body {
   width: 100px;
   margin-bottom: 15px;
 }
-h1.heading {
-  color: #fff;
-  font-size: 1.15em;
-  font-weight: 900;
-  margin: 0 0 0.5em;
-  color: #505050;
-}
+
 
 .img-profile1 {
   margin: 0px 5% 0px 2%;
@@ -52,41 +45,31 @@ h1.heading {
     margin: 0 0 0.3em;
   }
 }
-/* body {
-  background: #f2f4f8;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 100vh;
-  font-family: "Open Sans";
-} */
+
+
 
 .education {
   --bg-color: #ffd861;
   --bg-color-light: #fafafa;
-  --text-color-hover: #4c5656;
   --box-shadow-color: rgba(255, 215, 97, 0.48);
 }
 
 .credentialing {
   --bg-color: #b8f9d3;
   --bg-color-light: #e2fced;
-  --text-color-hover: #4c5656;
   --box-shadow-color: rgba(184, 249, 211, 0.48);
 }
 
 .wallet {
   --bg-color: #ceb2fc;
   --bg-color-light: #f0e7ff;
-  --text-color-hover: #fff;
-  --box-shadow-color: rgba(206, 178, 252, 0.48);
+  --box-shadow-color: rgba(184, 249, 211, 0.48);
 }
 
 .human-resources {
   --bg-color: #dce9ff;
   --bg-color-light: #f1f7ff;
-  --text-color-hover: #4c5656;
+
   --box-shadow-color: rgba(220, 233, 255, 0.48);
 }
 
@@ -126,7 +109,7 @@ h1.heading {
 }
 
 .card:hover p {
-  color: var(--text-color-hover);
+  color: #26434e;
 }
 
 .card:active {
@@ -136,8 +119,10 @@ h1.heading {
 }
 
 .card p {
-  font-size: 17px;
-  color: #4c5656;
+  font-family: "Montserrat", sans-serif;
+  color: #26434e;
+  font-weight: 400;
+  font-size: 1.2rem;
   margin-top: 30px;
   z-index: 1000;
   transition: color 0.3s ease-out;

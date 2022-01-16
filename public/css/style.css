@@ -1,8 +1,12 @@
 /* Custom css */
 
 footer.sticky-footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
   padding: 2rem 0;
-  flex-shrink: 0;
+
 }
 
 footer.sticky-footer .copyright {
@@ -65,7 +69,7 @@ body.sidebar-toggled footer.sticky-footer {
   margin-top: 1%;
   margin-bottom: 2%;
   font-family: "Montserrat", "sans sarif";
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #264653;
 }
 
@@ -77,8 +81,8 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 #copyright-text {
-  font-family: "Ubuntu", sans-serif;
-  color: #2a9d8f;
+  font-size: 1rem;
+  color: #93a1a7;
 }
 
 #editor-container {
