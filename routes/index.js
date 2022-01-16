@@ -4,10 +4,18 @@ const { snakeCase, startCase } = require("lodash");
 
 router.get("/", (req, res) => {
   res.render("index", {
+    title: "Home",
     Username: "test",
   });
 });
 
+router.get("/search", (req, res) => {
+  const title = startCase(req.params.module); //Send the title of html page
+  res.render("fields/search", {
+    Username: "test",
+    title,
+  });
+});
 //Faculty Page Route
 
 router.get("/faculty/:module", (req, res) => {

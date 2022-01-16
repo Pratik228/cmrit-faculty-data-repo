@@ -45,13 +45,13 @@ function handleRoute(req, res) {
   };
 
   const getAllTables = () => {
-    let sql = `SELECT table_name FROM information_schema.tables WHERE table_schema = "data_repository"`;
+    let sql = `SELECT table_name FROM information_schema.tables WHERE table_schema = "faculty_db"`;
 
     connection.query(sql, (err, result) => {
       if (err) console.log(err);
       result.forEach(({ TABLE_NAME }) => {
         let table = TABLE_NAME;
-        if (!(table === "faculty" || table === "coe" || table === "club_name"))
+        if (!(table === "faculty" || table === "department"))
           tables.push(table);
       }); //filter out table
       let data = [];
@@ -116,7 +116,7 @@ function handleRoute(req, res) {
   event === "all" ? getAllTables() : getTable();
 }
 
-//Filter Data and Print for both Faculty & Student
+//Filter Data and Print Faculty
 router.post("/search", (req, res) => {
   handleRoute(req, res); //Handle search route
 });

@@ -11,6 +11,7 @@ const connection = require("../configs/DBConnection");
 router.get("/admin", function (req, res) {
   res.render("admin/dashboard", {
     title: "Dashboard",
+    Username: "admin",
   });
 });
 
@@ -22,7 +23,6 @@ router.get("/add-user", function (req, res) {
 });
 
 //Render Add Dropdwon Field
-
 
 //Login Page
 router.get("/admin/login", function (req, res) {
