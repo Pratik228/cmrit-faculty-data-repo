@@ -4,27 +4,29 @@ import { updateData } from "../apis/UpdateData";
 import { quillConfig } from "./QuillConfig";
 import { quill } from "./Utils.js";
 
-const manageDate = function () {
-  const date = new Date();
-  let day = date.getDate();
-  let month = date.getMonth();
-  let year = date.getFullYear();
-  if (day <= 5) {
-    day = 30;
-    month = month === 0 ? 11 : month - 1;
-    if (month === 11) {
-      year--;
-    }
-  } else {
-    day = 30;
-  }
-  month++;
-  return year.toString() + "-" + month.toString() + "-" + day.toString();
-};
+// const manageDate = function () {
+//   const date = new Date();
+//   let day = date.getDate();
+//   let month = date.getMonth();
+//   let year = date.getFullYear();
+//   if (day <= 5) {
+//     day = 30;
+//     month = month === 0 ? 11 : month - 1;
+//     if (month === 11) {
+//       year--;
+//     }
+//   } else {
+//     day = 30;
+//   }
+//   month++;
+//   return year.toString() + "-" + month.toString() + "-" + day.toString();
+// };
 
 export const submitForm = () => {
   const form = document.querySelector("form");
   const formData = Object.fromEntries(new FormData(form).entries());
+
+  console.log(formData);
 
   if (isInsertMode === "false") {
     const description = document.querySelector(".ql-editor").innerHTML; //This will again append the content of quill in to description if we are fetching  the data
@@ -55,9 +57,9 @@ export const submitForm = () => {
     formData[categoryName] = categoryValue;
   }
 
-  //This is done to set the date to the last month no matter when we submit the form
-  const date = manageDate();
-  formData.filterDate = date;
+  // //This is done to set the date to the last month no matter when we submit the form
+  // const date = manageDate();
+  // formData.filterDate = date;
 
   const url = myForm.action;
   isInsertMode === "false" ? updateData(formData) : insertData(formData, url);

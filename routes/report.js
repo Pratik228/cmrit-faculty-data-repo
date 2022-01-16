@@ -16,7 +16,7 @@ const formatDate = (date, format) => {
 };
 
 function handleRoute(req, res) {
-  let { event, fromDate, toDate, dept, coe, isDescriptionRequired } = req.body;
+  let { event, fromDate, toDate, dept, isDescriptionRequired } = req.body;
   let tables = [];
 
   const filterData = (res, data) => {

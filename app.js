@@ -21,6 +21,7 @@ app.use((req, res, next) => {
 //routes
 
 app.use("/", require("./routes/viewsRoutes"));
+app.use("/api/v1/Awards", require("./routes/facAwardsRoutes"));
 app.use("/api/v1/faculty", require("./routes/facultyRoutes"));
 
 module.exports = app;
