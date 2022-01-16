@@ -28,3 +28,21 @@ exports.getResultPage = (req, res) => {
     title: "Result",
   });
 };
+
+exports.getAwardsPage = (req, res) => {
+  res.render("awards", {
+    title: "Award",
+  });
+};
+
+exports.getPatentPage = (req, res) => {
+  res.render("patent", {
+    title: "Patent",
+  });
+};
+
+exports.getFacultyServedAsPage = (req, res) => {
+  res.render("facutly_served_as", {
+    title: "Faculty Served As",
+  });
+};
