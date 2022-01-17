@@ -1,25 +1,22 @@
 const { getConnection } = require("../db/db.config");
 
 exports.createAward = async (req, res) => {
+  const {
+    awardsId: awardsId,
+    facultyId: facultyId,
+    category: category,
+    dId: dId,
+    filterDate: filterDate,
+    level: level,
+    eventName: eventName,
+    awardedBy: awardsBy,
+    servedAs: servedAs,
+    activityType: activityType,
+    description: description,
+  } = req.body;
   try {
     const data = req.body;
     console.log(req.body);
-    // const db = await getConnection();
-    // const sql = `INSERT INTO awards SET ?`,
-    // {
-    //     awardsId : awardsId,
-    //     facultyId : facultyId,
-    //     category :  category,
-    //     dId : dId,
-    //     filterDate :  filterDate,
-    //     level : level,
-    //     eventName : eventName,
-    //     awardedBy : awardsBy,
-    //     servedAs :servedAs,
-    //     activityType : activityType,
-    //     description : description,
-
-    // }
   } catch (err) {
     console.error(err);
     res.status(500).json({
