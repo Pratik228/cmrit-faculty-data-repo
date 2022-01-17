@@ -23,6 +23,11 @@ app.use((req, res, next) => {
 app.use("/", require("./routes/viewsRoutes"));
 app.use("/api/v1/awards", require("./routes/facAwardsRoutes"));
 app.use("/api/v1/results", require("./routes/facResultsRoutes"));
+app.use("/api/v1/patent", require("./routes/facPatentRoutes"));
+app.use(
+  "/api/v1/researchProjects",
+  require("./routes/facResearchProjectsRoutes")
+);
 app.use("/api/v1/faculty", require("./routes/facultyRoutes"));
 app.use("/api/v1/department", require("./routes/departmentRoutes"));
 

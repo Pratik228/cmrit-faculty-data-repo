@@ -3,11 +3,11 @@ const { getConnection } = require("../db/db.config");
 exports.createResult = async (req, res) => {
   try {
     const db = await getConnection();
-    const sql = `INSERT INTO awards SET ? `;
+    const sql = `INSERT INTO results SET ? `;
     await db.query(sql, req.body);
     res.status(201).json({
       status: "success",
-      message: "Awards is created!!",
+      message: "Results is created!!",
     });
   } catch (err) {
     console.error(err);
