@@ -2,6 +2,8 @@ const { getConnection } = require("../db/db.config");
 
 exports.createAward = async (req, res) => {
   try {
+    req.body.dId = req.body.department;
+    delete req.body.department;
     const db = await getConnection();
     const sql = `INSERT INTO awards SET ? `;
     await db.query(sql, req.body);
