@@ -10,6 +10,7 @@ module.exports = {
       "./public/js/controller.js",
       "./public/js/utils/MenuWindow.js",
       "./public/js/utils/Utils.js",
+      "./public/js/searchView.js",
     ],
   },
   output: {
