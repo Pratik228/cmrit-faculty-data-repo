@@ -4,7 +4,7 @@ const router = express.Router();
 
 router
   .route("/")
-  //   .get(facultyController.getAllAwards)
+  .get(facAwardsController.getAllAwards)
   .post(facAwardsController.createAward);
 
 // router

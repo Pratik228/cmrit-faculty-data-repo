@@ -2,24 +2,13 @@ const { getConnection } = require("../db/db.config");
 
 exports.createResult = async (req, res) => {
   try {
-    const data = req.body;
-    console.log(req.body);
-    // const db = await getConnection();
-    // const sql = `INSERT INTO awards SET ?`,
-    // {
-    //     awardsId : awardsId,
-    //     facultyId : facultyId,
-    //     category :  category,
-    //     dId : dId,
-    //     filterDate :  filterDate,
-    //     level : level,
-    //     eventName : eventName,
-    //     awardedBy : awardsBy,
-    //     servedAs :servedAs,
-    //     activityType : activityType,
-    //     description : description,
-
-    // }
+    const db = await getConnection();
+    const sql = `INSERT INTO awards SET ? `;
+    await db.query(sql, req.body);
+    res.status(201).json({
+      status: "success",
+      message: "Awards is created!!",
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({
@@ -28,11 +17,3 @@ exports.createResult = async (req, res) => {
     });
   }
 };
-
-// exports.getAwards = (req, res) => {
-//   const sql = `SELECT * FROM awards ?`;
-// };
-
-// exports.updateAwards = (req, res) => {
-//   const sql = `UPDATE awards SET ? WHERE awardsId ?`;
-// };
