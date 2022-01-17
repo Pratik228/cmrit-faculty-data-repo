@@ -21,11 +21,20 @@
 
         <div class="row data-row">
 
-          <div class="col-md-12 mb-12">
-            <label class="required">RCID</label>
-            <input type="text" name="rcid" class="form-control">
+          <div class="col-md-6 mb-3">
+            <label class="required">FacultyId</label>
+            <input type="text" name="facultyId" class="form-control">
             <div class="invalid-feedback">
               Please enter valid details.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="required">Department</label>
+            <%- include ("../partials/departments") %>
+
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid type.
             </div>
           </div>
 
@@ -65,7 +74,7 @@
             </div>
           </div>
           <div class="col-md-6 mb-3">
-            <label class="required">Submission Number</label>
+            <label class="required">Submission Name</label>
             <input type="text" name="submissionName" class="form-control">
             <div class="invalid-feedback">
               Please enter valid details.
@@ -103,6 +112,20 @@
           <div class="col-md-6 mb-3">
             <label class="required">Earnings from Patents</label>
             <input type="text" name="earning" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="required">CO to PI</label>
+            <input type="text" name="COtoPI" class="form-control">
+            <div class="invalid-feedback">
+              Please enter valid details.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="required">Name of PI</label>
+            <input type="text" name="NameofPI" class="form-control">
             <div class="invalid-feedback">
               Please enter valid details.
             </div>
