@@ -41,8 +41,8 @@ exports.getPatentPage = (req, res) => {
   });
 };
 
-exports.getFacultyServedAsPage = (req, res) => {
-  res.render("facutly_served_as", {
-    title: "Faculty Served As",
+exports.getResearchProjects = (req, res) => {
+  res.render("research_projects", {
+    title: "Research Projects",
   });
 };
