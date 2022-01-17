@@ -4,10 +4,12 @@ import { isInsertMode } from "../utils/Utils";
 
 export const loadDropdown = async (tableName, dropdown) => {
   try {
-    const resp = await axios.get(`/dropdown/${tableName}`);
-    for (const { name } of resp.data) {
+    const resp = await axios.get(`/api/v1/${tableName}`);
+    for (const fields of resp.data) {
+      const id = Object.values(fields)[0];
+      const name = Object.values(fields)[1];
       let option = document.createElement("option");
-      option.value = name;
+      option.value = id;
       option.text = name.charAt(0).toUpperCase() + name.slice(1);
 
       dropdown.appendChild(option);
