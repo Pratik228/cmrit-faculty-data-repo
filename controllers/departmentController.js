@@ -15,11 +15,3 @@ exports.getAllDepartments = async (req, res) => {
     });
   }
 };
-
-// exports.getAwards = (req, res) => {
-//   const sql = `SELECT * FROM awards ?`;
-// };
-
-// exports.updateAwards = (req, res) => {
-//   const sql = `UPDATE awards SET ? WHERE awardsId ?`;
-// };
