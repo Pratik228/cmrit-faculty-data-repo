@@ -21,12 +21,29 @@ exports.createAward = async (req, res) => {
 };
 
 exports.getAllAwards = async (req, res) => {
-  const db = await getConnection();
-  const sql = `SELECT * FROM awards`;
-  const result = await db.query(sql);
-  console.log(result[0]);
-  res.status(200).json({
-    status: "success",
-    data: JSON.parse(JSON.stringify(result[0])),
-  });
+  try {
+    const db = await getConnection();
+    let result;
+    let sql = `SELECT * FROM awards`;
+
+    const { fromDate, toDate, isDescriptionRequired } = req.query;
+
+    if (fromDate && toDate && isDescriptionRequired === "true") {
+      sql = `CALL filterAwards("awards","${fromDate}","${toDate}")`;
+    } else if (fromDate && toDate && isDescriptionRequired === "false") {
+      sql = `CALL filterAwardsNoDesc("awards","${fromDate}","${toDate}")`;
+    } else if (!fromDate && !toDate && isDescriptionRequired === "false") {
+      sql = `CALL getAllAwardsNoDesc("awards")`;
+    }
+
+    result = await db.query(sql);
+
+    res.status(200).json({
+      status: "success",
+      results: result[0][0].length,
+      data: JSON.parse(JSON.stringify(result[0][0])),
+    });
+  } catch (err) {
+    console.error(err);
+  }
 };
