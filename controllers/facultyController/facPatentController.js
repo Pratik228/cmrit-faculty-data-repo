@@ -1,4 +1,4 @@
-const { getConnection } = require("../db/db.config");
+const { getConnection } = require("../../db/db.config");
 
 exports.createPatent = async (req, res) => {
   try {

@@ -1,11 +1,11 @@
 const express = require("express");
-const facAwardsController = require("../controllers/facAwardsController");
+const facResearchProjectsController = require("../../controllers/facultyController/facResearchProjectsController");
 const router = express.Router();
 
 router
   .route("/")
-  .get(facAwardsController.getAllAwards)
-  .post(facAwardsController.createAward);
+  //   .get(facResearchController.getAll)
+  .post(facResearchProjectsController.createResearchProjects);
 
 // router
 //   .route("/:id")

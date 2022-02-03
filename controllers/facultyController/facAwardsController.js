@@ -1,4 +1,4 @@
-const { getConnection } = require("../db/db.config");
+const { getConnection } = require("../../db/db.config");
 
 exports.createAward = async (req, res) => {
   try {

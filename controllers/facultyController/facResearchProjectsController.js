@@ -1,4 +1,4 @@
-const { getConnection } = require("../db/db.config");
+const { getConnection } = require("../../db/db.config");
 
 exports.createResearchProjects = async (req, res) => {
   try {

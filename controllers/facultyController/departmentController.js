@@ -1,4 +1,4 @@
-const { getConnection } = require("../db/db.config");
+const { getConnection } = require("../../db/db.config");
 
 exports.getAllDepartments = async (req, res) => {
   try {
